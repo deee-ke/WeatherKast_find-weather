@@ -1,0 +1,158 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-color: #110F23;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav{
+    background-color:#0A0916;
+}
+
+.logo img{
+    width: 3.3rem;
+    height: 4rem;
+}
+.brand-name span{
+    color: #BC1D6A;
+}
+/* Input-section */
+
+
+
+.input{
+    background-color: #0A0916;
+    border: 1px solid #BC1D6A;
+}
+
+.input input{
+    outline: none;
+    border: none;
+    background: transparent;
+}
+.input input:focus{
+    outline: 3px solid #BC1D6A; 
+}
+.button{
+    background-color:#BC1D6A;
+    transition: background-color .6s;
+}
+.button:hover{
+    background-color: #0A0916;
+}
+.button:hover button{
+    color: #BC1D6A;
+}
+.button button{
+    color:#ffffff;
+    transition:color .6s;
+    height: 100%;
+    width: 100%;
+}
+
+/* Main-section */
+
+.hidden{
+    visibility: hidden;
+}
+
+.main-display,.temp-decptn-display,.more-info-display{
+    background-color: #0A0916;
+}
+
+.temp-digit h1,.temp-digit span{
+    font-family: Alfa Slab One;
+    font-size: 8.5rem;
+    color: #BC1D6A;
+}
+.feels-like span,.low-high span,.infos span{
+    color: #BC1D6A;
+}
+
+.temp-icon img{
+     height: 7rem;
+    /* opacity: 0.6; */
+    font-size: 5rem;
+    color: white;
+    border: 3px solid #BC1D6A;
+}
+.decptn p{
+    color: #BC1D6A;
+}
+
+.temp-decptn-display,.more-info-display{
+    height: 100%;
+}
+
+#foot{
+    margin-top: auto;
+}
+.footer{
+    background-color: #0A0916;
+    
+}
+.footer-icon img{
+    width: 11.5rem;
+}
+
+.copyrights a{
+    color: #BC1D6A;
+    transition: color .60s;
+}
+.copyrights a:hover{
+    color: #750a3d;
+}
+
+.foot-links ul li a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.foot-links ul li a:hover{
+    color: #BC1D6A;
+    
+}
+.foot-links span{
+    color: #BC1D6A;
+}
+
+/* Media-queries */
+
+@media (min-width: 1400px){
+    .container{
+    padding:0 19rem;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+    padding:0 15rem;
+    }
+}
+@media (min-width: 992px) {
+    .container{
+        padding:0 8rem;
+        }
+}
+@media (max-width: 767.98px) {
+    .temp-digit h1,.temp-digit span{
+        font-size: 5.8rem;
+    }
+    .low span,.feels-like span,.high span,.low p,.feels-like p,.high p{
+        font-size: 12.5px !important;
+    }
+}
+
+
+
+
+
+html{
+    scroll-behavior: smooth; /* used for smooth scrolling */
+}

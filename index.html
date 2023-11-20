@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherKast!</title>
+    <!-- tabicon -->
+    <link rel="icon" type="image/x-icon" href="./images/logo2.png">
+    <!-- Google-fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aladin&family=Alatsi&family=Alfa+Slab+One&family=Aoboshi+One&family=Bebas+Neue&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Rakkas&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./weather.css">
+
+</head>
+<body>
+    <div class="container" >
+        <div >
+            <!-- ======================== Nav-bar ========================= -->
+            <nav class="ps-3 pe-3 pt-3 pb-2 rounded-bottom-4">
+                <div class="nav row">
+                    <div class="logo col-1">
+                        <img src="./images/logo2.png" alt="">
+                    </div>
+                    <div class="brand-name d-flex justify-content-center text-center align-items-center col-10">
+                        <h2 class="m-0 text-white fw-bold fs-4"><span>W</span>eatherKast<span>!</span></h2>
+                    </div>
+                </div>
+            </nav>
+            <!-- ======================== Input-section ========================= -->
+            <div class="input-sec row g-2 mt-2">
+                <div class="col-lg-10  col-md-10">
+                    <div class=" input  rounded-3">
+                        <input id="input" type="text" class="text-white p-2 w-100 rounded-3" placeholder="Enter city name">
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2">
+                    <div class="button pt-2 pb-2 rounded-3 text-center">
+                        <button onclick="search()" class="fw-bold bg-transparent border-0">FIND</button>
+                    </div>
+                </div>
+            </div>
+            <!-- ====================== Main-section ========================= -->
+            <main id="result" class="hidden">
+                <div class="row mt-3">
+                    <!-- ======================= Temperature-display-section =================== -->
+                        <div class="col-12">
+                            <div class="main-display rounded-4 p-3">
+                                <div class="place-name">
+                                    <h2 class="text-white fw-semibold fs-4 text-center mb-3">${cname}</h2>
+                                    <p class="text-white fw-semibold text-center m-0">Temperature in °C</p>
+                                </div>
+                                <div class="temp-digit text-center justify-content-center text-center align-items-baseline d-flex">
+                                    <h1 class=" text-center ">${temp}</h1>
+                                    <span class="  text-center">°</span>
+                                </div>
+    
+                                <div class="low-high d-flex justify-content-around">
+                                    <div class="low text-center justify-content-center text-center align-items-baseline d-flex">
+                                        <p class="text-white m-0 fw-medium ">Lowest :&nbsp;</p>
+                                        <span class="fw-semibold fs-2">${mintmp}</span><span class="fw-semibold fs-2">°</span>
+                                    </div>
+                                    <div class="feels-like text-center justify-content-center text-center align-items-baseline d-flex ">
+                                        <p class="text-white  m-0 fw-medium">Feels like :&nbsp;</p>
+                                        <span class="fw-semibold fs-2">${feels}</span><span class="fw-semibold fs-2">°</span>
+                                    </div>
+                                    <div class="high text-center justify-content-center text-center align-items-baseline d-flex">
+                                        <p class="text-white m-0 fw-medium">Highest :&nbsp;</p>
+                                        <span class="fw-semibold fs-2">${maxtmp}</span><span class="fw-semibold fs-2">°</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                            <div class="row mt-1 g-4">
+                        <!-- ========================== Temperature-img-section =================== -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="temp-decptn-display p-3 rounded-4 ">
+                                        <div class="decptn-head mb-2">
+                                            <h2 class="text-white fw-semibold fs-4 text-center m-0">${state}</h2>
+                                        </div>
+                                        <div  class="temp-icon text-center mb-3">
+                                        <img class="rounded-4 " src="${imgsrc}" alt="">
+                                            
+                                        </div>
+                                        <div class="decptn">
+                                            <p class=" fw-semibold text-center m-0">${description}</p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                        <!-- =================== More-information-section ======================== -->
+                                <div class="col-lg-6 col-md-6">
+                                    <div class=" more-info-display align-items-center ps-4 p-3 rounded-4">
+                                        <div class="infos text-center justify-content-center align-items-baseline d-flex">
+                                            <p class="text-white m-0 fw-medium fs-5">Pressure :&nbsp;</p>
+                                            <span class="fw-semibold fs-1">${pressure}</span>&nbsp;<span class="fw-semibold text-white fs-5">hPa</span>
+                                        </div>
+                                        <div class="infos text-center justify-content-center align-items-baseline d-flex">
+                                            <p class="text-white m-0 fw-medium fs-5">Humidity :&nbsp;</p>
+                                            <span class="fw-semibold fs-1">${humidity}</span>&nbsp;<span class="fw-semibold text-white fs-5">%</span>
+                                        </div>
+                                        <div class="infos text-center justify-content-center align-items-baseline d-flex">
+                                            <p class="text-white m-0 fw-medium fs-5">Wind speed :&nbsp;</p>
+                                            <span class="fw-semibold fs-1">${windspeed}</span>&nbsp;<span class="fw-semibold text-white fs-5">m/s</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            </main>
+                
+            <!-- ======================== footer-section =================================== -->
+
+        <footer class="footer1" id="foot">
+                <div class="footer rounded-top-4 rounded-bottom-1 p-3 mt-3">
+                    <div class="footer-icon text-center">
+                        <img src="./images/weathercasticon.png" alt="">
+                    </div>
+                    <div class="copyrights text-center">
+                        <p class="text-white fw-light m-0">Copyrights &copy;WeatherKast! 2023</p>
+                        <p class="text-white fw-light m-0">Build by <a href="https://linktr.ee/deee.ke" class="fw-semibold text-decoration-none">Danish Ahamed.</a></p>
+                    </div>
+                    <div class="foot-links">
+                        <ul class="list-unstyled d-flex justify-content-center mt-1 mb-0 fw-light">
+                            <li class="litem ps-lg-3 pe-lg-3 ps-2 pe-2"><a href=""><span>A</span>bout</a></li>
+                            <li class="litem ps-lg-3 pe-lg-3 ps-2 pe-2"><a href=""><span>T</span>erms & <span>C</span>ondiions</a></li>
+                            <li class="litem ps-lg-3 pe-lg-3 ps-2 pe-2"><a href="https://linktr.ee/deee.ke" target="_blank"><span>C</span>ontact</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </footer>
+        
+    </div>
+</body>
+<script src="./weather.js"></script>
+</html>
